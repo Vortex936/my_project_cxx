@@ -1,0 +1,30 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "Clang",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "/home/sigurd/Code/c++/programmering2/my_project/build/debug",
+	"dir-cur-src" : "/home/sigurd/Code/c++/programmering2/my_project",
+	"dir-top-bld" : "/home/sigurd/Code/c++/programmering2/my_project/build/debug",
+	"dir-top-src" : "/home/sigurd/Code/c++/programmering2/my_project",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : 
+	[
+		"/home/sigurd/Code/c++/programmering2/my_project/build/debug/_deps/std-build/CMakeFiles/std.dir"
+	],
+	"module-dir" : "/home/sigurd/Code/c++/programmering2/my_project/build/debug/CMakeFiles/main.dir",
+	"sources" : 
+	{
+		"CMakeFiles/main.dir/main.cpp.o" : 
+		{
+			"language" : "CXX",
+			"source" : "/home/sigurd/Code/c++/programmering2/my_project/main.cpp"
+		}
+	}
+}

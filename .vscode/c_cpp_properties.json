@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "CMake",
+            "compileCommands": "${config:cmake.buildDirectory}/compile_commands.json",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compilerArgs": [
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-Wpedantic",
+                "-Wsign-conversion",
+                "-Wconversion",
+                "-Werror=switch",
+                "-fdiagnostics-color=always",
+                "-Wdouble-promotion",
+                "-Wformat-overflow=2",
+                "-Wnull-dereference",
+                "-Winfinite-recursion",
+                "-Wmisleading-indentation",
+                "-Wstrict-overflow",
+                "-g"
+            ]
+        }
+    ],
+    "version": 4
+}
