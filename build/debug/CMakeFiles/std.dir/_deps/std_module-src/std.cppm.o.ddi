@@ -1,0 +1,16 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles/std.dir/_deps/std_module-src/std.cppm.o",
+      "provides": [
+        {
+          "is-interface": true,
+          "logical-name": "std",
+          "source-path": "/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/_deps/std_module-src/std.cppm"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

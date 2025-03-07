@@ -91,10 +91,12 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
   set(STD_INCLUDE_PATH "C:/path/to/libc++/headers/folder")
 endif()
 
+include(std.cmake)
+
 # Require C++23 standard
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_EXTENSIONS ON)
 
 # Enable module support for different versions of CMake
 if(CMAKE_VERSION VERSION_LESS "3.28.0")
@@ -273,8 +275,8 @@ endmacro()
 
 # This macro links the standard library to a target
 macro(link_std target)
-  #add_dependencies(${target} std-populate)
-  #target_link_libraries(${target} std)
+  add_dependencies(${target} std)
+  target_link_libraries(${target} std)
   target_compile_features(${target} PRIVATE cxx_std_23)
 endmacro()
 

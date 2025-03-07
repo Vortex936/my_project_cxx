@@ -1,0 +1,35 @@
+{
+	"modules" : 
+	{
+		"std" : 
+		{
+			"bmi" : "/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/CMakeFiles/std.dir/std.pcm",
+			"is-private" : false
+		},
+		"std.compat" : 
+		{
+			"bmi" : "/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/CMakeFiles/std.dir/std.compat.pcm",
+			"is-private" : false
+		}
+	},
+	"references" : 
+	{
+		"std" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "CMakeFiles/std.dir/std.pcm"
+		},
+		"std.compat" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "CMakeFiles/std.dir/std.compat.pcm"
+		}
+	},
+	"usages" : 
+	{
+		"std.compat" : 
+		[
+			"std"
+		]
+	}
+}
