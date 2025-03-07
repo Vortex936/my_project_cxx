@@ -34,6 +34,6 @@
 ./build
 
 # Actual code should be ignored
-#main.cpp
-#src/*
-#tests/*
+./main.cpp
+./src/*
+./tests/*
