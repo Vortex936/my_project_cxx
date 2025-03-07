@@ -33,6 +33,7 @@
 
 ./build
 ./compile_commands.json
+./.cache
 
 # Actual code should be ignored
 ./main.cpp
