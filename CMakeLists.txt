@@ -30,7 +30,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # Linux
   # On Archlinux, requires the following packages:
   # - cmake
   # - llvm-minimal-git
-  # - libc++abi-modules
+  # - libc++abi
   #     - AUR package is outdated, needs manual upgrade to version 1.19.7 or higher.
   #     - Set `pkgver` in PKGBUILD to 1.19.7 (or higher) then do `makepkg -si`
   # Needs equivalent packages on other Linux distributions
@@ -42,7 +42,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # Linux
 
   # Path to libc++ source files
   # Change this to where it is located on your system
-  set(STD_LIB_PATH "/usr/lib/c++/v1")
+  set(STD_LIB_PATH "/usr/share/libc++/v1")
 
   # Path to libc++ header files
   # Change this to where it is located on your system
@@ -109,16 +109,6 @@ else()
 endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-# Fetch standard library source files
-include(FetchContent)
-FetchContent_Declare(
-  std
-  URL file://${STD_LIB_PATH}/
-  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-  SYSTEM
-)
-FetchContent_MakeAvailable(std)
 
 # Enable scanning for modules
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
@@ -213,6 +203,8 @@ add_compile_options(
 add_compile_options(-fbuiltin-module-map)
 add_compile_options(-fimplicit-module-maps)
 add_compile_options(-fprebuilt-module-path=${PREBUILT_MODULE_PATH})
+add_compile_options(-fmodules)
+#add_compile_options(-fimplicit-modules)
 #add_compile_options(-fretain-comments-from-system-headers)
 
 # This crashes the compiler with clang 20
@@ -220,7 +212,6 @@ add_compile_options(-fprebuilt-module-path=${PREBUILT_MODULE_PATH})
 # Might be version specific
 #add_compile_options(-Xclang)
 #add_compile_options(-emit-module-interface)
-#add_compile_options(-fmodules)
 
 # Compiler specific warnings
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
@@ -282,8 +273,8 @@ endmacro()
 
 # This macro links the standard library to a target
 macro(link_std target)
-  add_dependencies(${target} std)
-  target_link_libraries(${target} std)
+  #add_dependencies(${target} std-populate)
+  #target_link_libraries(${target} std)
   target_compile_features(${target} PRIVATE cxx_std_23)
 endmacro()
 

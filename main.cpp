@@ -1,4 +1,5 @@
-import std;
+#include <print>
+#include <iostream>
 
 int main()
 {
