@@ -54,6 +54,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
   # - cmake
   # - clang-19
   # - procs
+  # - ninja
   # If you are using a different version of clang, the paths need to be changed
 
   # Set compiler
@@ -79,8 +80,8 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
 
   # Set compiler
   # Change this to where it is located on your system
-  set(CMAKE_C_COMPILER "C:/path/to/clang.exe")
-  set(CMAKE_CXX_COMPILER "C:/path/to/clang++.exe")
+  set(CMAKE_C_COMPILER "C:/msys64/clang64.exe")
+  set(CMAKE_CXX_COMPILER "C:/msys64/clang64.exe")
 
   # Path to libc++ source files
   # Change this to where it is located on your system
