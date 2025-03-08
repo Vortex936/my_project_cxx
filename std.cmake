@@ -15,7 +15,7 @@ FetchContent_Declare(
 )
 
 if (NOT std_module_POPULATED)
-  FetchContent_Populate(std_module)
+  FetchContent_MakeAvailable(std_module)
 endif()
 
 add_library(std)
@@ -39,7 +39,6 @@ target_compile_features(std
 target_link_options(std
   PUBLIC
     -stdlib=libc++
-    -Wl,-rpath=${CLANG_DIR}/../lib/${CLANG_TARGET}
 )
 
 target_link_libraries(std

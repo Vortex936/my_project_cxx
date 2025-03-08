@@ -3,86 +3,7 @@
 # Require CMake version
 cmake_minimum_required(VERSION 3.26 FATAL_ERROR)
 
-# OS-specific settings
-# If using clang, you need at least version 18 for proper module support.
-# On Linux, libc++ with module support is needed.
-# On MacOS, libc++ with module support is included when installing clang.
-# On Archlinux, this is a separate package, and clang uses stdlibc++ instead by default, which does not support modules.
-# The stock version on MacOS is version 16
-# The stable version (package clang) on ArchLinux is version 17
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # Linux
-  message("OS: Linux")
-
-  # On Archlinux, requires the following packages:
-  # - cmake
-  # - llvm-minimal-git
-  # - libc++abi
-  #     - AUR package is outdated, needs manual upgrade to version 1.19.7 or higher.
-  #     - Set `pkgver` in PKGBUILD to 1.19.7 (or higher) then do `makepkg -si`
-  # Needs equivalent packages on other Linux distributions
-
-  # Set compiler
-  # Change this to where it is located on your system
-  set(CMAKE_C_COMPILER "/usr/bin/clang")
-  set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
-
-  # Path to libc++ source files
-  # Change this to where it is located on your system
-  set(STD_LIB_PATH "/usr/share/libc++/v1")
-
-  # Path to libc++ header files
-  # Change this to where it is located on your system
-  set(STD_INCLUDE_PATH "/usr/include/c++/v1")
-
-  set(CMAKE_MAKE_PROGRAM "/usr/bin/ninja")
-elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
-  message("OS: MacOS")
-
-  # On macOS, requires the following MacPorts packages:
-  # - cmake
-  # - clang-19
-  # - procs
-  # - ninja
-  # If you are using a different version of clang, the paths need to be changed
-
-  # Set compiler
-  # Change this to where it is located on your system
-  set(CMAKE_C_COMPILER "/opt/local/libexec/llvm-19/bin/clang")
-  set(CMAKE_CXX_COMPILER "/opt/local/libexec/llvm-19/bin/clang++")
-
-  # Path to libc++ source files
-  # Change this to where it is located on your system
-  set(STD_LIB_PATH "/opt/local/libexec/llvm-19/share/libc++/v1")
-
-  # Path to libc++ header files
-  # Change this to where it is located on your system
-  set(STD_INCLUDE_PATH "/opt/local/libexec/llvm-19/include/c++/v1")
-
-  set(CMAKE_MAKE_PROGRAM "/opt/local/bin/ninja")
-elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
-  message("OS: Windows")
-
-  # Not sure how to do this on Windows
-  # It might be better to use the MSVC standard library (STL) instead of libc++
-  # MSVC and STL can be installed with the Microsoft VisualStudio installer.
-  # Clang can also be used instead of MSVC.
-  # libc++, however i'm not sure is available on Windows at all.
-
-  # Set compiler
-  # Change this to where it is located on your system
-  set(CMAKE_C_COMPILER "C:/msys64/clang64.exe")
-  set(CMAKE_CXX_COMPILER "C:/msys64/clang64.exe")
-
-  # Path to libc++ source files
-  # Change this to where it is located on your system
-  set(STD_LIB_PATH "C:/path/to/libc++/library/folder")
-
-  # Path to libc++ header files
-  # Change this to where it is located on your system
-  set(STD_INCLUDE_PATH "C:/path/to/libc++/headers/folder")
-
-  set(CMAKE_MAKE_PROGRAM "C:/path/to/ninja.exe")
-endif()
+include(os.cmake)
 
 # Define project
 # Change VERSION and DESCRIPTION to whatever you want
@@ -98,6 +19,7 @@ set(ENV{CLANG_DEFAULT_CXX_STDLIB} libc++)
 # Enable LLVM compiler runtime
 set(ENV{CLANG_DEFAULT_RTLIB} compiler-rt)
 
+include(os.cmake)
 include(std.cmake)
 
 # Require C++23 standard
