@@ -96,5 +96,17 @@
   "cmake.additionalCompilerSearchDirs": [
       "/opt/local/libexec/llvm-19/bin/",
       "/usr/bin/"
-  ]
+  ],
+  "platformSettings.platforms": {
+    "darwin": {
+      "nodes": {
+        "cmake.cmakePath": "/opt/local/bin/cmake"
+      }
+    },
+    "linux": {
+      "nodes": {
+        "cmake.cmakePath": "/usr/bin/cmake"
+      }
+    }
+  }
 }
