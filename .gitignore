@@ -31,11 +31,11 @@
 *.out
 *.app
 
-./build/*
-./compile_commands.json
-./.cache/*
+build
+compile_commands.json
+.cache
 
 # Actual code should be ignored
-./main.cpp
-./src/*
-./tests/*
+main.cpp
+src/*
+tests/*

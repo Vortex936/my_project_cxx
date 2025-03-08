@@ -102,22 +102,10 @@
   "cmake.configureArgs": [
       "-DCMAKE_MAKE_PROGRAM=ninja"
   ],
-  "platformSettings.platforms": {
-    "darwin": {
-      "nodes": {
-        "cmake.cmakePath": "/opt/local/bin/cmake",
-        "cmake.configureArgs": [
-            "-DCMAKE_MAKE_PROGRAM=/opt/local/bin/ninja"
-        ],
-      }
-    },
-    "linux": {
-      "nodes": {
-        "cmake.cmakePath": "/usr/bin/cmake",
-        "cmake.configureArgs": [
-            "-DCMAKE_MAKE_PROGRAM=/usr/bin/ninja"
-        ],
-      }
-    }
+  "terminal.integrated.env.osx": {
+    "PATH": "${env:PATH}:/opt/local/bin/"
+  },
+  "terminal.integrated.env.linux": {
+    "PATH": "${env:PATH}:/usr/bin/"
   }
 }
