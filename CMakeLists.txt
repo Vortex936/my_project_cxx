@@ -3,20 +3,6 @@
 # Require CMake version
 cmake_minimum_required(VERSION 3.26 FATAL_ERROR)
 
-# Define project
-# Change VERSION and DESCRIPTION to whatever you want
-# `MY_PROJECT` is a variable name, and must not be changed
-project(MY_PROJECT
-  VERSION 1.0.0
-  DESCRIPTION "My project"
-  LANGUAGES CXX
-)
-
-# Enable libc++ standard library
-set(ENV{CLANG_DEFAULT_CXX_STDLIB} libc++)
-# Enable LLVM compiler runtime
-set(ENV{CLANG_DEFAULT_RTLIB} compiler-rt)
-
 # OS-specific settings
 # If using clang, you need at least version 18 for proper module support.
 # On Linux, libc++ with module support is needed.
@@ -47,6 +33,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # Linux
   # Path to libc++ header files
   # Change this to where it is located on your system
   set(STD_INCLUDE_PATH "/usr/include/c++/v1")
+
+  set(CMAKE_MAKE_PROGRAM "/usr/bin/ninja")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
   message("OS: MacOS")
 
@@ -69,6 +57,8 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
   # Path to libc++ header files
   # Change this to where it is located on your system
   set(STD_INCLUDE_PATH "/opt/local/libexec/llvm-19/include/c++/v1")
+
+  set(CMAKE_MAKE_PROGRAM "/opt/local/bin/ninja")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
   message("OS: Windows")
 
@@ -90,7 +80,23 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
   # Path to libc++ header files
   # Change this to where it is located on your system
   set(STD_INCLUDE_PATH "C:/path/to/libc++/headers/folder")
+
+  set(CMAKE_MAKE_PROGRAM "C:/path/to/ninja.exe")
 endif()
+
+# Define project
+# Change VERSION and DESCRIPTION to whatever you want
+# `MY_PROJECT` is a variable name, and must not be changed
+project(MY_PROJECT
+  VERSION 1.0.0
+  DESCRIPTION "My project"
+  LANGUAGES CXX
+)
+
+# Enable libc++ standard library
+set(ENV{CLANG_DEFAULT_CXX_STDLIB} libc++)
+# Enable LLVM compiler runtime
+set(ENV{CLANG_DEFAULT_RTLIB} compiler-rt)
 
 include(std.cmake)
 
