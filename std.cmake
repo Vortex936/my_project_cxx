@@ -1,3 +1,5 @@
+# I got this from https://github.com/llvm/llvm-project/issues/80231#issuecomment-1922037108
+
 if (NOT CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   message(FATAL_ERROR "std module requires Clang")
 endif()
