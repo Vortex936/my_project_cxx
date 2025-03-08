@@ -31,9 +31,9 @@
 *.out
 *.app
 
-./build
+./build/*
 ./compile_commands.json
-./.cache
+./.cache/*
 
 # Actual code should be ignored
 ./main.cpp

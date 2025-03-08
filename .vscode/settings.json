@@ -99,6 +99,9 @@
       "C:/msys64/"
   ],
   "cmake.generator": "Ninja",
+  "cmake.configureArgs": [
+      "-DCMAKE_MAKE_PROGRAM=ninja"
+  ],
   "platformSettings.platforms": {
     "darwin": {
       "nodes": {
