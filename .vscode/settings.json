@@ -98,6 +98,7 @@
       "/usr/bin/",
       "C:/msys64/"
   ],
+  "cmake.generator": "Ninja",
   "platformSettings.platforms": {
     "darwin": {
       "nodes": {

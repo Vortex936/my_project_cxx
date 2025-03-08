@@ -1,0 +1,3 @@
+/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/_deps/std_module-subbuild/CMakeFiles/std_module-populate.dir
+/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/_deps/std_module-subbuild/CMakeFiles/edit_cache.dir
+/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/_deps/std_module-subbuild/CMakeFiles/rebuild_cache.dir

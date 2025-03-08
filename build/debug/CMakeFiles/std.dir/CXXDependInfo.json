@@ -1,0 +1,42 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "Clang",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : 
+	{
+		"CMakeFiles/std.dir/_deps/std_module-src/std.compat.cppm.o" : 
+		{
+			"bmi-only" : false,
+			"destination" : null,
+			"name" : "cxx_modules",
+			"relative-directory" : "build/debug/_deps/std_module-src",
+			"source" : "/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/_deps/std_module-src/std.compat.cppm",
+			"type" : "CXX_MODULES",
+			"visibility" : "PUBLIC"
+		},
+		"CMakeFiles/std.dir/_deps/std_module-src/std.cppm.o" : 
+		{
+			"bmi-only" : false,
+			"destination" : null,
+			"name" : "cxx_modules",
+			"relative-directory" : "build/debug/_deps/std_module-src",
+			"source" : "/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/_deps/std_module-src/std.cppm",
+			"type" : "CXX_MODULES",
+			"visibility" : "PUBLIC"
+		}
+	},
+	"database-info" : null,
+	"dir-cur-bld" : "/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug",
+	"dir-cur-src" : "/home/sigurd/Code/c++/programmering2/my_project_cxx",
+	"dir-top-bld" : "/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug",
+	"dir-top-src" : "/home/sigurd/Code/c++/programmering2/my_project_cxx",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/home/sigurd/Code/c++/programmering2/my_project_cxx/build/debug/CMakeFiles/std.dir",
+	"sources" : {}
+}
