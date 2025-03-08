@@ -105,12 +105,18 @@
   "platformSettings.platforms": {
     "darwin": {
       "nodes": {
-        "cmake.cmakePath": "/opt/local/bin/cmake"
+        "cmake.cmakePath": "/opt/local/bin/cmake",
+        "cmake.configureArgs": [
+            "-DCMAKE_MAKE_PROGRAM=/opt/local/bin/ninja"
+        ],
       }
     },
     "linux": {
       "nodes": {
-        "cmake.cmakePath": "/usr/bin/cmake"
+        "cmake.cmakePath": "/usr/bin/cmake",
+        "cmake.configureArgs": [
+            "-DCMAKE_MAKE_PROGRAM=/usr/bin/ninja"
+        ],
       }
     }
   }
