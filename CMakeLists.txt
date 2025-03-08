@@ -64,11 +64,11 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
 
   # Path to libc++ source files
   # Change this to where it is located on your system
-  set(STD_LIB_PATH "/opt/local/libexec/llvm-19/local/libexec/libc++/v1")
+  set(STD_LIB_PATH "/opt/local/libexec/llvm-19/share/libc++/v1")
 
   # Path to libc++ header files
   # Change this to where it is located on your system
-  set(STD_INCLUDE_PATH "/opt/local/libexec/llvm-19/local/include/c++/v1")
+  set(STD_INCLUDE_PATH "/opt/local/libexec/llvm-19/include/c++/v1")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
   message("OS: Windows")
 
