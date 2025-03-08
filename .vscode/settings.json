@@ -95,7 +95,8 @@
   "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
   "cmake.additionalCompilerSearchDirs": [
       "/opt/local/libexec/llvm-19/bin/",
-      "/usr/bin/"
+      "/usr/bin/",
+      "C:/msys64/"
   ],
   "platformSettings.platforms": {
     "darwin": {
