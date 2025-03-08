@@ -3,6 +3,8 @@
 # Require CMake version
 cmake_minimum_required(VERSION 3.26 FATAL_ERROR)
 
+set(USE_LIBCXX ON)
+
 include(os.cmake)
 
 # Define project
@@ -14,13 +16,18 @@ project(MY_PROJECT
   LANGUAGES CXX
 )
 
-# Enable libc++ standard library
-set(ENV{CLANG_DEFAULT_CXX_STDLIB} libc++)
+include(os.cmake)
+
+if(USE_LIBCXX)
+  # Enable libc++ standard library
+  set(ENV{CLANG_DEFAULT_CXX_STDLIB} libc++)
+endif()
 # Enable LLVM compiler runtime
 set(ENV{CLANG_DEFAULT_RTLIB} compiler-rt)
 
-include(os.cmake)
-include(std.cmake)
+if(USE_LIBCXX)
+  include(std_libcxx.cmake)
+endif()
 
 # Require C++23 standard
 set(CMAKE_CXX_STANDARD 23)
@@ -54,81 +61,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # This is needed for clangd or microsoft C/C++ intellisense to work.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
-# Enable libc++ for xcode
-set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY libc++)
+if(USE_LIBCXX)
+  # Enable libc++ for xcode
+  set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY libc++)
+endif()
 
-# Set maximum error count
-# Change this to whatever you want
-set(MAX_ERRORS 32)
-
-# Enable extra warnings and errors
-add_compile_options(-fdiagnostics-color=always)
-add_compile_options(
-    -Wall
-    -Wextra
-    -pedantic
-    -Wpedantic
-    -Wsign-conversion
-    -Wconversion
-    -Werror=switch
-    -Wdouble-promotion
-    -Wnull-dereference
-    -Winfinite-recursion
-    -Wmisleading-indentation
-    -Werror=return-local-addr
-    -Wno-c++23-extensions
-    -Werror=shadow
-    -Wpointer-arith
-    -Wcast-qual
-    -Wstrict-prototypes
-    -Wmissing-prototypes
-    -Wformat=2
-    -Wundef
-    -Wuninitialized
-    -Winit-self
-    #-Wfloat-equal
-    -Wwrite-strings
-    -Wmissing-field-initializers
-    -Wredundant-decls
-    -Waggregate-return
-    -Wstrict-aliasing=2
-    -Warray-bounds
-    -Wcast-align
-    -Wswitch-default
-    -Wswitch-enum
-    -Wstack-protector
-    -Wold-style-definition
-    -Wbad-function-cast
-    -Wc++-compat
-    -Wdeclaration-after-statement
-    -Wmissing-declarations
-    -Wmissing-include-dirs
-    -Wnested-externs
-    -Wpacked
-    -Wpadded
-    -Wredundant-decls
-    -Wsign-compare
-    -Wstrict-overflow=5
-    -Wvla
-    -Wdisabled-optimization
-    -Winline
-    -Winvalid-pch
-    -Wmissing-format-attribute
-    -Woverlength-strings
-    -Wpragmas
-    -Wunused-but-set-parameter
-    -Wunused-but-set-variable
-    -Wunused-const-variable
-    -Wunused-function
-    -Wunused-label
-    -Wunused-local-typedef
-    -Wunused-macros
-    -Wunused-parameter
-    -Wunused-value
-    -Wunused-variable
-    -Wvariadic-macros
-    -Wno-braced-scalar-init
-)
+include(warnings.cmake)
 
 # Feature flags for modules
 add_compile_options(-fbuiltin-module-map)
@@ -144,15 +82,6 @@ add_compile_options(-fmodules)
 #add_compile_options(-Xclang)
 #add_compile_options(-emit-module-interface)
 
-# Compiler specific warnings
-if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-  add_compile_options(-fmax-errors=${MAX_ERRORS})
-  add_compile_options(-Wformat-overflow=2)
-  include(gcc_modules.cmake)
-else()
-  add_compile_options(-Wstrict-overflow)
-endif()
-
 # Include standard library headers
 # Change this path to wherever the standard library is on your system
 add_compile_options(-cxx-isystem${STD_INCLUDE_PATH})
@@ -164,9 +93,14 @@ if(NOT "$ENV{CPLUS_INCLUDE_PATH}" STREQUAL "")
     include_directories(${CPLUS_INCLUDE_PATH_LIST})
 endif()
 
-# Use libc++ and lld
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -isystem${STD_INCLUDE_PATH}")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++ -lc++abi -fuse-ld=lld")
+if(USE_LIBCXX)
+  # Use libc++
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -isystem${STD_INCLUDE_PATH}")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++")
+endif()
+
+# Use lld
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lc++abi -fuse-ld=lld")
 
 # Set project source directory
 set(PROJECT_SOURCE_DIR src)

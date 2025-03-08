@@ -11,10 +11,13 @@ endif()
 execute_process(COMMAND bash "-c" "${CMAKE_CXX_COMPILER} -v 2>&1 > /dev/null | grep 'InstalledDir' | awk '{print $2}' | tr -d '\n'" OUTPUT_VARIABLE CLANG_DIR)
 execute_process(COMMAND bash "-c" "${CMAKE_CXX_COMPILER} -v 2>&1 > /dev/null | grep 'Target: ' | awk '{print $2}' | tr -d '\n'" OUTPUT_VARIABLE CLANG_TARGET)
 
+set(STD_LIB_PATH "${CLANG_DIR}/../share/libc++/v1")
+set(STD_INCLUDE_PATH "${CLANG_DIR}/../include/c++/v1")
+
 include(FetchContent)
 FetchContent_Declare(
   std_module
-  URL "file://${CLANG_DIR}/../share/libc++/v1"
+  URL "file://${STD_LIB_PATH}/"
   DOWNLOAD_EXTRACT_TIMESTAMP TRUE
   SYSTEM
 )

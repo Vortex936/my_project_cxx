@@ -22,14 +22,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # Linux
   set(CMAKE_C_COMPILER "/usr/bin/clang")
   set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 
-  # Path to libc++ source files
+  # Path to Ninja
   # Change this to where it is located on your system
-  set(STD_LIB_PATH "/usr/share/libc++/v1")
-
-  # Path to libc++ header files
-  # Change this to where it is located on your system
-  set(STD_INCLUDE_PATH "/usr/include/c++/v1")
-
   set(CMAKE_MAKE_PROGRAM "/usr/bin/ninja")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
   message("OS: MacOS")
@@ -46,36 +40,33 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
   set(CMAKE_C_COMPILER "/opt/local/libexec/llvm-19/bin/clang")
   set(CMAKE_CXX_COMPILER "/opt/local/libexec/llvm-19/bin/clang++")
 
-  # Path to libc++ source files
+  # Path to Ninja
   # Change this to where it is located on your system
-  set(STD_LIB_PATH "/opt/local/libexec/llvm-19/share/libc++/v1")
-
-  # Path to libc++ header files
-  # Change this to where it is located on your system
-  set(STD_INCLUDE_PATH "/opt/local/libexec/llvm-19/include/c++/v1")
-
   set(CMAKE_MAKE_PROGRAM "/opt/local/bin/ninja")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
   message("OS: Windows")
 
+  # libc++ is not available on Windows
+  # You can use GCC's stdlibc++ or Microsoft's STL.
   # Not sure how to do this on Windows
-  # It might be better to use the MSVC standard library (STL) instead of libc++
-  # MSVC and STL can be installed with the Microsoft VisualStudio installer.
-  # Clang can also be used instead of MSVC.
-  # libc++, however i'm not sure is available on Windows at all.
+  # If you have installed clang through the Microsoft Developer Tools installer, the compiler paths should be correct.
 
   # Set compiler
   # Change this to where it is located on your system
   set(CMAKE_C_COMPILER "C:/msys64/clang64.exe")
   set(CMAKE_CXX_COMPILER "C:/msys64/clang64.exe")
 
-  # Path to libc++ source files
+  # Path to stdlibc++ or STL source files
   # Change this to where it is located on your system
   set(STD_LIB_PATH "C:/path/to/libc++/library/folder")
 
-  # Path to libc++ header files
+  # Path to stdlibc++ or STL header files
   # Change this to where it is located on your system
   set(STD_INCLUDE_PATH "C:/path/to/libc++/headers/folder")
 
+  # Path to Ninja
+  # Change this to where it is located on your system
   set(CMAKE_MAKE_PROGRAM "C:/path/to/ninja.exe")
+
+  set(USE_LIBCXX OFF)
 endif()
