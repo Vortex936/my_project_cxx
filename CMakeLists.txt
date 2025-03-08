@@ -15,6 +15,8 @@ project(MY_PROJECT
   DESCRIPTION "My project"
   LANGUAGES CXX
 )
+# This is the target we link everything to
+set(LIB_TARGET MY_PROJECT)
 
 include(os.cmake)
 
@@ -83,7 +85,6 @@ add_compile_options(-fmodules)
 #add_compile_options(-emit-module-interface)
 
 # Include standard library headers
-# Change this path to wherever the standard library is on your system
 add_compile_options(-cxx-isystem${STD_INCLUDE_PATH})
 
 # Include from environment
@@ -155,9 +156,11 @@ endmacro()
 
 # This macro includes the directories of the header files (.hpp) in ./src to a target
 macro(include_header_dirs target)
+  set(MODULES_AND_HEADERS)
+  list(APPEND MODULES_AND_HEADERS ${MODULES} ${HEADERS})
+  directories_of(HEADER_DIRS MODULES_AND_HEADERS)
   list(LENGTH HEADER_DIRS LENGTH_DIRS)
   if(LENGTH_DIRS GREATER 0)
-    directories_of(HEADER_DIRS ${MODULES} ${HEADERS})
     target_include_directories(
       ${target}
       BEFORE PUBLIC
@@ -195,9 +198,6 @@ macro(add_exe target entry_point)
   add_executable(${target} ${entry_point})
   link_and_include(${target})
 endmacro()
-
-# This is the target we link everything to
-set(LIB_TARGET MY_PROJECT)
 
 # Link everything to our target, unless there is nothing to link
 list(LENGTH SOURCES LENGTH_SOURCES)

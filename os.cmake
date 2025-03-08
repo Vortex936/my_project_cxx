@@ -13,8 +13,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # Linux
   # - cmake
   # - llvm-minimal-git
   # - libc++abi
-  #     - AUR package is outdated, needs manual upgrade to version 1.19.7 or higher.
-  #     - Set `pkgver` in PKGBUILD to 1.19.7 (or higher) then do `makepkg -si`
   # Needs equivalent packages on other Linux distributions
 
   # Set compiler
@@ -30,9 +28,9 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
 
   # On macOS, requires the following MacPorts packages:
   # - cmake
-  # - clang-19
   # - procs
   # - ninja
+  # - clang-19
   # If you are using a different version of clang, the paths need to be changed
 
   # Set compiler
@@ -50,6 +48,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
   # You can use GCC's stdlibc++ or Microsoft's STL.
   # Not sure how to do this on Windows
   # If you have installed clang through the Microsoft Developer Tools installer, the compiler paths should be correct.
+  # Contributions on the git repo are greatly appreciated
 
   # Set compiler
   # Change this to where it is located on your system
