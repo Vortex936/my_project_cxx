@@ -92,13 +92,5 @@
   "cmake.useCMakePresets": "never",
   "cmake.buildDirectory": "${workspaceFolder}/build/debug",
   "cmake.exportCompileCommandsFile": true,
-  "C_Cpp_Runner.cCompilerPath": "clang",
-  "C_Cpp_Runner.cppCompilerPath": "clang++",
-  "C_Cpp_Runner.debuggerPath": "gdb",
-  "C_Cpp_Runner.cStandard": "c23",
-  "C_Cpp_Runner.cppStandard": "c++23",
-  "clangd.arguments": [
-    "--resource-dir=/usr/lib/clang/20/"
-  ],
   "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json"
 }
