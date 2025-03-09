@@ -57,11 +57,11 @@ Install the following packages from the AUR:
 - `git`
 - `cmake`
 - `ninja`
-- For clang version 19:
+- For clang version 19 (i recommend installing them together as `yay -S llvm clang compiler-rt`):
     - `llvm`
     - `clang`
     - `compiler-rt`
-- For clang version 21:
+- For clang version 21 (i recommend installing them together as `yay -S llvm-minimal-git clang-minimal-git`):
     - `llvm-minimal-git` (Don't try to build `llvm-git`. You will run out of disk space. Trust me, i have tried.)
     - `clang-minimal-git`
 - `libc++abi`
