@@ -142,3 +142,7 @@ The target triple might possibly vary from system to system.
 ##### Others
 
 Same as with Linux, but change the paths and the target triple to whatever is correct on your system. My guess would be that `clangd` lies in the same directory as `clang`.
+
+## Thanks to
+
+User [a858438680](https://github.com/a858438680) for figuring out a reliable workaround to importing the standard library as a module on unix systems. Source: https://github.com/llvm/llvm-project/issues/80231#issuecomment-1922037108. His solution works great, even though CMake does not yet support `import std` (as of writing).
