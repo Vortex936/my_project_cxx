@@ -6,7 +6,7 @@ int it_works(int, char**)
 {
     assert(1 == 1);
 
-    std::println(std::cout, "It works!");
+    std::println("It works!");
 
     return 0;
 }

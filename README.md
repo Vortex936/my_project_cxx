@@ -49,26 +49,30 @@ STL, as far as i know, is distributed as `.dll` binary files, and would have to 
 
 #### Arch-Linux (and possibly other distros that use pacman)
 
+With Linux, you have a choice to either use the latest stable, pre-built Clang version (version 19 as of writing) or the latest development/git version (version 21 as of writing) built from source. Building from source can be a bit tricky, takes hours to complete, and requires you to set up the correct environment variables, preferably inside `/etc/makepkg.conf` or an equivalent. It can be a slightly ardous task, but it might be worth the time.
+
 For convenience, you might want an AUR wrapper, for example `yay` or `paru`. If not, you'll need to clone the repo of each AUR package and run `makepkg -si` inside.
 
 Install the following packages from the AUR:
 - `git`
 - `cmake`
 - `ninja`
-- For clang version 19:
+- For clang version 19 (i recommend installing them together as `yay -S llvm clang compiler-rt`):
     - `llvm`
     - `clang`
     - `compiler-rt`
-- For clang version 21:
+- ...or for clang version 21 (i recommend installing them together as `yay -S llvm-minimal-git clang-minimal-git`):
     - `llvm-minimal-git` (Don't try to build `llvm-git`. You will run out of disk space. Trust me, i have tried.)
     - `clang-minimal-git`
 - `libc++abi`
 
 On other distributions, you need the equivalent of these packages, and the rest should be easy.
 
+If you chose the git version, you might have to manually edit the `std.cppm` and `std.compat.cppm` to remove the failing checks for missing headers that are not yet implemented. Just comment them out.
+
 #### MacOS/OSX
 
-Clang comes pre-installed on MacOS, but it's not a new enough version. For this setup i've picked the (at the time of writing) newest version of Clang, `clang-19`. If you later were to use a newer version, the `CMakeLists.txt` will need changes.
+Clang comes pre-installed on MacOS, but it's not a new enough version (as of writing). For this setup i've picked the (at the time of writing) newest available version of Clang for MacOS, `clang-19`. If you later were to use a newer version, the `CMakeLists.txt` will need changes.
 
 1. Install XCode Command Line Developer Tools
     - Open up the terminal
@@ -77,7 +81,7 @@ Clang comes pre-installed on MacOS, but it's not a new enough version. For this 
     - Go to this webpage: https://www.macports.org/install.php
     - Select the correct download link for your version of MacOS
     - An installer will be downloaded. Run this and you're set.
-3. On MacOS, the environment variables needed to run a C/C++ compiler are not set by default. Set them in the file ´~/.bashrc´
+3. On MacOS, the environment variables needed to run a C/C++ compiler are not set by default. Set them in the file `~/.bashrc`
     - Open up the terminal
     - `touch ~/.bashrc`
     - `open ~/.bashrc` (A text editor will now open)
@@ -116,7 +120,7 @@ export CLANG_DEFAULT_CXX_STDLIB=libc++
 
  #### Setting up Clangd in VSCode
 
-Clangd is LLVM's intellisense daemon.
+Clangd is LLVM's intellisense daemon. It's not strictly needed to write and compile your code, but it sure makes for a better coding experience, with continual compile-checking, intellisense (when you type a '.', a list of suggestions will pop up), hover dialogues, and syntax highlighting.
 
 If Clangd shows errors that do not appear when you build your workspace, follow this instruction to possibly fix it. If this fails, see this guide for more ideas: https://clangd.llvm.org/troubleshooting.
 
@@ -138,3 +142,7 @@ The target triple might possibly vary from system to system.
 ##### Others
 
 Same as with Linux, but change the paths and the target triple to whatever is correct on your system. My guess would be that `clangd` lies in the same directory as `clang`.
+
+## Thanks to
+
+- [@a858438680](https://github.com/a858438680) for figuring out a reliable workaround to importing the standard library as a module on unix systems. Source: https://github.com/llvm/llvm-project/issues/80231#issuecomment-1922037108. His solution works great.
