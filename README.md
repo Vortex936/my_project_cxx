@@ -49,6 +49,8 @@ STL, as far as i know, is distributed as `.dll` binary files, and would have to 
 
 #### Arch-Linux (and possibly other distros that use pacman)
 
+With Linux, you have a choice to either use the latest stable, pre-built Clang version (version 19 as of writing) or the latest development/git version (version 21 as of writing) built from source. Building from source can be a bit tricky, takes hours to complete, and requires you to set up the correct environment variables, preferably inside `/etc/makepkg.conf` or an equivalent. It can be a slightly ardous task, but it might be worth the time.
+
 For convenience, you might want an AUR wrapper, for example `yay` or `paru`. If not, you'll need to clone the repo of each AUR package and run `makepkg -si` inside.
 
 Install the following packages from the AUR:
@@ -66,9 +68,11 @@ Install the following packages from the AUR:
 
 On other distributions, you need the equivalent of these packages, and the rest should be easy.
 
+If you chose the git version, you might have to manually edit the `std.cppm` and `std.compat.cppm` to remove the failing checks for missing headers that are not yet implemented. Just comment them out.
+
 #### MacOS/OSX
 
-Clang comes pre-installed on MacOS, but it's not a new enough version. For this setup i've picked the (at the time of writing) newest version of Clang, `clang-19`. If you later were to use a newer version, the `CMakeLists.txt` will need changes.
+Clang comes pre-installed on MacOS, but it's not a new enough version (as of writing). For this setup i've picked the (at the time of writing) newest available version of Clang for MacOS, `clang-19`. If you later were to use a newer version, the `CMakeLists.txt` will need changes.
 
 1. Install XCode Command Line Developer Tools
     - Open up the terminal
@@ -116,7 +120,7 @@ export CLANG_DEFAULT_CXX_STDLIB=libc++
 
  #### Setting up Clangd in VSCode
 
-Clangd is LLVM's intellisense daemon.
+Clangd is LLVM's intellisense daemon. It's not strictly needed to write and compile your code, but it sure makes for a better coding experience, with continual compile-checking, intellisense (when you type a '.', a list of suggestions will pop up), and syntax highlighting.
 
 If Clangd shows errors that do not appear when you build your workspace, follow this instruction to possibly fix it. If this fails, see this guide for more ideas: https://clangd.llvm.org/troubleshooting.
 
