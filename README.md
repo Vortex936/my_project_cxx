@@ -59,7 +59,7 @@ Clang comes pre-installed on MacOS, but it's not a new enough version. For this 
     - Go to this webpage: https://www.macports.org/install.php
     - Select the correct download link for your version of MacOS
     - An installer will be downloaded. Run this and you're set.
-4. On MacOS, the environment variables needed to run a C/C++ compiler are not set by default. Set them in the file ´~/.bashrc´
+3. On MacOS, the environment variables needed to run a C/C++ compiler are not set by default. Set them in the file ´~/.bashrc´
     - Open up the terminal
     - `touch ~/.bashrc`
     - `open ~/.bashrc` (A text editor will now open)
@@ -73,7 +73,7 @@ export CXXFLAGS="-cxx-isystem/opt/local/libexec/gcc11/libc++/include/c++/v1"
 export CPLUS_INCLUDE_PATH=/opt/libexec/gcc11/libc++/include/c++/v1
 export CLANG_DEFAULT_CXX_STDLIB=libc++
 ```
-4. Continuation...
+3. Continuation...
     - Verify that the path to the standard library is correct on your system. If you do `ls /opt/local/libexec/gcc11/libc++/include/c++/v1`, you should see some header files (`.h`), like `stddef.h`, `stdio.h`, and so on. If this is not the case, figure out the correct path to the `libc++` standard library and use that path instead.
     - Save the file `~/.bashrc` (⌘ + S) and close the text-editor window
 4. Now you are ready to install a few packages with MacPorts. If you use Homebrew, the command is different, but you still need the equivalent packages. The default shell `zsh` does not use the `~/.bashrc` file, so you need to change shell to `bash` first.
