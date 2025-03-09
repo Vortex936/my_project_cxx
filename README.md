@@ -98,7 +98,7 @@ export CLANG_DEFAULT_CXX_STDLIB=libc++
 
  #### Setting up Clangd in VSCode
 
-For Clangd to function better, it is recommended to add the following lines to your settings.js. (Open it by pressing Ctrl + Shift + P or ⌘ + Shift + P to open the run menu, then type "settings json" and you should see the correct option `Preferences: Open User Settings (JSON)`).
+For Clangd to function better, it is recommended to add the following lines to your `settings.js`. (Open it by pressing Ctrl + Shift + P or ⌘ + Shift + P to open the run menu, then type "settings json" and you should see the option `Preferences: Open User Settings (JSON)`).
 
 ##### Linux
  
