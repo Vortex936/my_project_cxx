@@ -53,17 +53,17 @@ On other distributions, you need the equivalent of these packages, and the rest 
 Clang comes pre-installed on MacOS, but it's not a new enough version. For this setup i've picked the (at the time of writing) newest version of Clang, `clang-19`. If you later were to use a newer version, the `CMakeLists.txt` will need changes.
 
 1. Install XCode Command Line Developer Tools
-  1. Open up the terminal
-  2. `xcode-select --install` (this includes `git`, and is also a requirement for MacPorts to work)
+    - Open up the terminal
+    - `xcode-select --install` (this includes `git`, and is also a requirement for MacPorts to work)
 2. Install MacPorts (alternatively, Homebrew can be used)
-  1. Go to this webpage: https://www.macports.org/install.php
-  2. Select the correct download link for your version of MacOS
-  3. An installer will be downloaded. Run this and you're set.
+    - Go to this webpage: https://www.macports.org/install.php
+    - Select the correct download link for your version of MacOS
+    - An installer will be downloaded. Run this and you're set.
 4. On MacOS, the environment variables needed to run a C/C++ compiler are not set by default. Set them in the file ´~/.bashrc´
-  1. Open up the terminal
-  2. `touch ~/.bashrc`
-  3. `open ~/.bashrc` (A text editor will now open)
-  4. In the text editor, add these lines to the bottom of the file:
+    - Open up the terminal
+    - `touch ~/.bashrc`
+    - `open ~/.bashrc` (A text editor will now open)
+    - In the text editor, add these lines to the bottom of the file:
 ```bash
 export CC=clang
 export CXX=clang++
@@ -73,21 +73,21 @@ export CXXFLAGS="-cxx-isystem/opt/local/libexec/gcc11/libc++/include/c++/v1"
 export CPLUS_INCLUDE_PATH=/opt/libexec/gcc11/libc++/include/c++/v1
 export CLANG_DEFAULT_CXX_STDLIB=libc++
 ```
-  5. Verify that the path to the standard library is correct on your system. If you do `ls /opt/local/libexec/gcc11/libc++/include/c++/v1`, you should see some header files (`.h`), like `stddef.h`, `stdio.h`, and so on. If this is not the case, figure out the correct path to the `libc++` standard library and use that path instead.
-  6. Save the file `~/.bashrc` (⌘ + S) and close the text-editor window
+    - Verify that the path to the standard library is correct on your system. If you do `ls /opt/local/libexec/gcc11/libc++/include/c++/v1`, you should see some header files (`.h`), like `stddef.h`, `stdio.h`, and so on. If this is not the case, figure out the correct path to the `libc++` standard library and use that path instead.
+    - Save the file `~/.bashrc` (⌘ + S) and close the text-editor window
 4. Now you are ready to install a few packages with MacPorts. If you use Homebrew, the command is different, but you still need the equivalent packages. The default shell `zsh` does not use the `~/.bashrc` file, so you need to change shell to `bash` first.
-  1. `bash` (This enters the shell `bash` instead of `zsh`. Otherwise, the environment variables we set will not be used.)
-  2. `sudo port install cmake`
-  3. `sudo port install ninja`
-  4. `sudo port install procs`
-  5. `sudo port install clang-19`
-  6. If any of these fail, check the log file and figure out the problem. Enter `sudo port clean <name of package>` to cleanly rebuild the package after you've done changes elsewhere. If all goes well, you now have all the right prerequesites installed.
+    - `bash` (This enters the shell `bash` instead of `zsh`. Otherwise, the environment variables we set will not be used.)
+    - `sudo port install cmake`
+    - `sudo port install ninja`
+    - `sudo port install procs`
+    - `sudo port install clang-19`
+    - If any of these fail, check the log file and figure out the problem. Enter `sudo port clean <name of package>` to cleanly rebuild the package after you've done changes elsewhere. If all goes well, you now have all the right prerequesites installed.
 
 ### Setting up Visual Studio Code
 
 1. Install VSCode or any equivalent (VSCodium, ...).
-  - Arch-Linux: `sudo pacman -S code`
-  - Windows/MacOS: Download the installer at https://code.visualstudio.com/.
+    - Arch-Linux: `sudo pacman -S code`
+    - Windows/MacOS: Download the installer at https://code.visualstudio.com/.
 2. If you haven't already, make a folder for your C++ workspaces. (For example, `~/Code/c++/`)
 3. Clone this git repo by entering `git clone https://github.com/sigurd4/my_project_cxx.git` in the terminal while in this directory you just made.
 4. Open VSCode in the new folder.
