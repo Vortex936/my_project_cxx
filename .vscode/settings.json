@@ -94,11 +94,18 @@
   "cmake.exportCompileCommandsFile": true,
   "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
   "cmake.additionalCompilerSearchDirs": [
+      "/opt/local/libexec/llvm-21/bin/",
+      "/opt/local/libexec/llvm-20/bin/",
       "/opt/local/libexec/llvm-19/bin/",
+      "/opt/local/libexec/llvm-18/bin/",
+      "/opt/local/libexec/llvm-17/bin/",
+      "/opt/local/libexec/",
       "/usr/bin/",
       "C:/msys64/"
   ],
   "cmake.generator": "Ninja",
+  "lldb.launch.terminal": "integrated",
+  "lldb.launch.breakpointMode": "path",
   "terminal.integrated.env.osx": {
     "PATH": "${env:PATH}:/opt/local/bin/"
   },

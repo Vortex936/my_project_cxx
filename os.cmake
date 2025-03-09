@@ -17,8 +17,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # Linux
 
   # Set compiler
   # Change this to where it is located on your system
-  set(CMAKE_C_COMPILER "/usr/bin/clang")
-  set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+  #set(CMAKE_C_COMPILER "/usr/bin/clang")
+  #set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 
   # Path to Ninja
   # Change this to where it is located on your system
@@ -35,8 +35,8 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # MacOS
 
   # Set compiler
   # Change this to where it is located on your system
-  set(CMAKE_C_COMPILER "/opt/local/libexec/llvm-19/bin/clang")
-  set(CMAKE_CXX_COMPILER "/opt/local/libexec/llvm-19/bin/clang++")
+  #set(CMAKE_C_COMPILER "/opt/local/libexec/llvm-19/bin/clang")
+  #set(CMAKE_CXX_COMPILER "/opt/local/libexec/llvm-19/bin/clang++")
 
   # Path to Ninja
   # Change this to where it is located on your system
@@ -52,8 +52,8 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows") # Windows
 
   # Set compiler
   # Change this to where it is located on your system
-  set(CMAKE_C_COMPILER "C:/msys64/clang64.exe")
-  set(CMAKE_CXX_COMPILER "C:/msys64/clang64.exe")
+  #set(CMAKE_C_COMPILER "C:/msys64/clang64.exe")
+  #set(CMAKE_CXX_COMPILER "C:/msys64/clang64.exe")
 
   # Path to stdlibc++ or STL source files
   # Change this to where it is located on your system
