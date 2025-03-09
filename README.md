@@ -81,7 +81,7 @@ Clang comes pre-installed on MacOS, but it's not a new enough version (as of wri
     - Go to this webpage: https://www.macports.org/install.php
     - Select the correct download link for your version of MacOS
     - An installer will be downloaded. Run this and you're set.
-3. On MacOS, the environment variables needed to run a C/C++ compiler are not set by default. Set them in the file ´~/.bashrc´
+3. On MacOS, the environment variables needed to run a C/C++ compiler are not set by default. Set them in the file `~/.bashrc`
     - Open up the terminal
     - `touch ~/.bashrc`
     - `open ~/.bashrc` (A text editor will now open)
