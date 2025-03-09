@@ -108,6 +108,10 @@ export CLANG_DEFAULT_CXX_STDLIB=libc++
 
  #### Setting up Clangd in VSCode
 
+Clangd is LLVM's intellisense daemon.
+
+If Clangd shows errors that do not appear when you build your workspace, follow this instruction to possibly fix it.
+
 For Clangd to function better, it is recommended to add the following lines to your `settings.js`. (Open it by pressing Ctrl + Shift + P or ⌘ + Shift + P to open the run menu, then type "settings json" and you should see the option `Preferences: Open User Settings (JSON)`).
 
 ##### Linux
