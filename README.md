@@ -35,6 +35,8 @@ Git can be installed from this webpage: https://git-scm.com/downloads.
 
 You can get most of the prerequesites (except `libc++` and i'm not sure about `lld`) from the Visual Studio Tools Installer, from here: https://visualstudio.microsoft.com/downloads/.
 
+You will most definitely have to edit the `CMakeLists.txt` file extensively to make it work.
+
 ##### Standard library
 
 On Windows, `libc++` is not available.
