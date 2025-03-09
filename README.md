@@ -145,4 +145,4 @@ Same as with Linux, but change the paths and the target triple to whatever is co
 
 ## Thanks to
 
-- [@a858438680](https://github.com/a858438680) for figuring out a reliable workaround to importing the standard library as a module on unix systems. Source: https://github.com/llvm/llvm-project/issues/80231#issuecomment-1922037108. His solution works great, even though CMake does not yet support `import std` (as of writing).
+- [@a858438680](https://github.com/a858438680) for figuring out a reliable workaround to importing the standard library as a module on unix systems. Source: https://github.com/llvm/llvm-project/issues/80231#issuecomment-1922037108. His solution works great.
