@@ -120,7 +120,7 @@ export CLANG_DEFAULT_CXX_STDLIB=libc++
 
  #### Setting up Clangd in VSCode
 
-Clangd is LLVM's intellisense daemon. It's not strictly needed to write and compile your code, but it sure makes for a better coding experience, with continual compile-checking, intellisense (when you type a '.', a list of suggestions will pop up), and syntax highlighting.
+Clangd is LLVM's intellisense daemon. It's not strictly needed to write and compile your code, but it sure makes for a better coding experience, with continual compile-checking, intellisense (when you type a '.', a list of suggestions will pop up), hover dialogues, and syntax highlighting.
 
 If Clangd shows errors that do not appear when you build your workspace, follow this instruction to possibly fix it. If this fails, see this guide for more ideas: https://clangd.llvm.org/troubleshooting.
 
