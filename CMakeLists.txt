@@ -3,6 +3,7 @@
 # Require CMake version
 cmake_minimum_required(VERSION 3.26 FATAL_ERROR)
 
+# Set this to OFF to disable `libc++`.
 set(USE_LIBCXX ON)
 
 include(os.cmake)
