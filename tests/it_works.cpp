@@ -1,5 +1,4 @@
-#include <print>
-#include <iostream>
+import std;
 
 #include <assert.h>
 
