@@ -64,7 +64,7 @@ Clang comes pre-installed on MacOS, but it's not a new enough version. For this 
     - `touch ~/.bashrc`
     - `open ~/.bashrc` (A text editor will now open)
     - In the text editor, add these lines to the bottom of the file:
-<code>
+```bash
 export CC=clang
 export CXX=clang++
 export CMAKE_C_COMPILER=clang
@@ -72,7 +72,8 @@ export CMAKE_CXX_COMPILER=clang++
 export CXXFLAGS="-cxx-isystem/opt/local/libexec/gcc11/libc++/include/c++/v1"
 export CPLUS_INCLUDE_PATH=/opt/libexec/gcc11/libc++/include/c++/v1
 export CLANG_DEFAULT_CXX_STDLIB=libc++
-</code>
+```
+4. Continuation...
     - Verify that the path to the standard library is correct on your system. If you do `ls /opt/local/libexec/gcc11/libc++/include/c++/v1`, you should see some header files (`.h`), like `stddef.h`, `stdio.h`, and so on. If this is not the case, figure out the correct path to the `libc++` standard library and use that path instead.
     - Save the file `~/.bashrc` (⌘ + S) and close the text-editor window
 4. Now you are ready to install a few packages with MacPorts. If you use Homebrew, the command is different, but you still need the equivalent packages. The default shell `zsh` does not use the `~/.bashrc` file, so you need to change shell to `bash` first.
