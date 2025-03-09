@@ -29,11 +29,21 @@ For this workspace to function, you need to install CMake, Ninja, Clang, LLD, an
 
 #### Windows
 
-On Windows, libc++ is not available. I haven't set this up for Windows yet, but if i were to try to do it, you'd need a different standard library and would probably not be able to do `import std` until CMake supports this officially (supposedly in CMake version 3.30). Any help with making this Windows compatible is greatly appreciated.
+I haven't set this up for Windows yet, but if i were to try to do it, you'd need a different standard library and would probably not be able to do `import std` until CMake supports this officially (supposedly in CMake version 3.30). Any help with making this Windows compatible is greatly appreciated.
 
 Git can be installed from this webpage: https://git-scm.com/downloads.
 
-You can get most of the prerequesites (except `libc++` and i'm not sure about `lld`) from the Visual Studio Tools Installer, from here: https://visualstudio.microsoft.com/downloads/. 
+You can get most of the prerequesites (except `libc++` and i'm not sure about `lld`) from the Visual Studio Tools Installer, from here: https://visualstudio.microsoft.com/downloads/.
+
+##### Standard library
+
+On Windows, `libc++` is not available.
+
+Your best options are GCC's `libstdc++` and Microsoft's STL.
+
+STL, as far as i know, is distributed as `.dll` binary files, and would have to be included in a fundamentally different way in the `CMakeLists.txt`. I don't even know where to begin with this. You can get it from the Visual Studio Tools Installer, here: https://visualstudio.microsoft.com/downloads/.
+
+`libstdc++` is also a decent option, and might be easier to set up. Hell, it might even be possible to use it as an importable C++20/C++23 module thorugh CMake with a similar trick that i've done with `libc++`. Worth a try. It can be installed with `MinGW` (https://www.mingw-w64.org/).
 
 #### Arch-Linux (and possibly other distros that use pacman)
 
