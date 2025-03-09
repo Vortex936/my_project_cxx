@@ -110,7 +110,7 @@ export CLANG_DEFAULT_CXX_STDLIB=libc++
 
 Clangd is LLVM's intellisense daemon.
 
-If Clangd shows errors that do not appear when you build your workspace, follow this instruction to possibly fix it.
+If Clangd shows errors that do not appear when you build your workspace, follow this instruction to possibly fix it. If this fails, see this guide for more ideas: https://clangd.llvm.org/troubleshooting.
 
 For Clangd to function better, it is recommended to add the following lines to your `settings.js`. (Open it by pressing Ctrl + Shift + P or ⌘ + Shift + P to open the run menu, then type "settings json" and you should see the option `Preferences: Open User Settings (JSON)`).
 
