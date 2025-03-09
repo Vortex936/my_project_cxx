@@ -100,7 +100,7 @@ export CLANG_DEFAULT_CXX_STDLIB=libc++
     - Arch-Linux: `sudo pacman -S code`
     - Windows/MacOS: Download the installer at https://code.visualstudio.com/.
 2. If you haven't already, make a folder for your C++ workspaces. (For example, `~/Code/c++/`)
-3. Clone this git repo by entering `git clone https://github.com/sigurd4/my_project_cxx.git` in the terminal while in this directory you just made.
+3. Clone this git repo by entering `git clone https://github.com/sigurd4/my_project_cxx.git` in the terminal while in this directory you just made (do `cd ~/Code/c++` first or any equivalent).
 4. Open VSCode in the new folder.
 5. A prompt asking you to install recommended extensions might shop up. Click yes, or install them individually in the extensions panel under the `Recommended` tab. Wait for the installation to complete.
 6. A new toolbar at the bottom of the screen will appear (from the CMake Tools extension). Click the button that says `No kit selected`, then click `Scan for kits` in the pop-up menu.
