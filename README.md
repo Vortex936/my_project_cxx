@@ -124,7 +124,7 @@ Clangd is LLVM's C/C++ langage-server daemon. It's not strictly needed to write 
 
 If Clangd shows errors that do not appear when you build your workspace, follow this instruction to possibly fix it. If this fails, see this guide for more ideas: https://clangd.llvm.org/troubleshooting.
 
-For Clangd to function better, it is recommended to add the following lines to your `settings.js`. (Open it by pressing Ctrl + Shift + P or ⌘ + Shift + P to open the run menu, then type "settings json" and you should see the option `Preferences: Open User Settings (JSON)`).
+For Clangd to function better, it is recommended to add the following lines to your `settings.js`. (Open it by pressing Ctrl + Shift + P or ⌘ + Shift + P to open the run menu, then type "settings json" and you should see the option `Preferences: Open User Settings (JSON)`). The most important ones are the paths.
 
 ##### Linux
  
@@ -197,6 +197,10 @@ Explicit listing of the arguments `int argc` and `char*[] argv` are required, or
 CMake will also recursively scan for modules (`*.cppm`), headers (`*.hpp`, `.h`), template-implementations (`.tpp`) and source-files (`.cpp`, `.c`) within the `./src` folder, which you have to create in the root of the workspace. All these are automatically linked so that both the main entry-point (`./main.cpp`) and all the tests (`./tests/*.cpp`) can include/import them. I've mostly tested this with module-files, so headers- and source-files are a bit unstable.
 
 All of these can be in nested folder structures inside the `./src` folder. Have fun!
+
+## Problems
+
+On MacOS, if you have an x86_64 processor, some parts of the standard library, like the new printing functions `std::print` and `std::println` are unusable, and will result in a runtime error. This is not my fault, and is caused by a bug in Apple's C++ standard library. There's nothing i can do about this, sadly.
 
 ## Thanks to
 
