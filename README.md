@@ -137,7 +137,9 @@ For Clangd to function better, it is recommended to add the following lines to y
     ]
 ```
 
-#### MacOS
+##### MacOS
+
+Macs with an arm processor will use the target triple `arm64-apple-darwin`, while older macs with an x68_64 architecture will use `x86_64-apple-darwin`.
 
 ```json
     "clangd.path": "/opt/local/libexec/llvm-19/bin/clangd",
@@ -148,11 +150,13 @@ For Clangd to function better, it is recommended to add the following lines to y
     ]
 ```
 
-The target triple might possibly vary from system to system.
+##### Windows
+
+No idea.
 
 ##### Others
 
-Same as with Linux, but change the paths and the target triple to whatever is correct on your system. My guess would be that `clangd` lies in the same directory as `clang`.
+Same as above, but change the paths and the target triple to whatever is correct on your system. My guess would be that `clangd` lies in the same directory as `clang`.
 
 ## Thanks to
 
