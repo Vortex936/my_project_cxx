@@ -132,7 +132,7 @@ For Clangd to function better, it is recommended to add the following lines to y
     "clangd.path": "/usr/bin/clangd",
     "clangd.arguments": [
         "--query-driver=/usr/bin/clang,/usr/bin/clang++",
-        "--target=x86_64-pc-linux-gnu",
+        "--index=x86_64-pc-linux-gnu",
         "--background-index=0"
     ]
 ```
