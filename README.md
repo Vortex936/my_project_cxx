@@ -182,7 +182,7 @@ Inside the `./tests` folder, CMake will scan recursively for `*.cpp` files, and 
 ```c++
 import std;
 
-int oblig1_oppg1(int, char*[])
+int oblig1_oppg1(int, char**)
 {
     // My code here
 
@@ -190,7 +190,7 @@ int oblig1_oppg1(int, char*[])
 }
 ```
 
-Explicit listing of the arguments `int argc` and `char*[] argv` are required, or the test-environment will not compile. You also need to explicitly return an op-code at the end (0 for success), or your test will crash.
+Explicit listing of the arguments `int argc` and `char** argv` are required, or the test-environment will not compile. You also need to explicitly return an op-code at the end (0 for success), or your test will crash.
 
 ### Sources
 
