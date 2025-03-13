@@ -68,7 +68,7 @@ Install the following packages from the AUR:
 
 On other distributions, you need the equivalent of these packages, and the rest should be easy.
 
-If you chose the git version, you might have to manually edit the `std.cppm` and `std.compat.cppm` to remove the failing checks for missing headers that are not yet implemented. Just comment them out.
+If you chose the git version, you might have to manually edit the `/usr/*/std.cppm` and `/usr/*/std.compat.cppm` to remove the failing checks for missing headers that are not yet implemented. Just comment them out.
 
 #### MacOS/OSX
 
