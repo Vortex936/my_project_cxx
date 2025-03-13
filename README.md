@@ -158,6 +158,46 @@ No idea.
 
 Same as above, but change the paths and the target triple to whatever is correct on your system. My guess would be that `clangd` lies in the same directory as `clang`.
 
+## Usage
+
+The CMakeList is set up to scan for code in two folder: `./src` and `./tests`.
+
+### Main
+
+The file `./main.cpp` is the main program entry-point, and can be run using the build target `main`. It should follow the classic rules for how a typical main entry point in a C++ program should look like. Something like this:
+
+```c++
+import std;
+
+int main()
+{
+    std::println("Hello world!");
+}
+```
+
+### Tests
+
+Inside the `./tests` folder, CMake will scan recursively for `*.cpp` files, and use them as entry points ran using CTest. These entry points need to have an entry-point function in the global scope, that is named the same as the relative path of the file, except for `./test/`, where each slash is replaced by an underscore. If you have a test in the file `./tests/oblig1/oppg1.cpp`, then this file should look something like this:
+
+```c++
+import std;
+
+int oblig1_oppg1(int, char*[])
+{
+    // My code here
+
+    return 0;
+}
+```
+
+Explicit listing of the arguments `int argc` and `char*[] argv` are required, or the test-environment will not compile. You also need to explicitly return an op-code at the end (0 for success), or your test will crash.
+
+### Sources
+
+CMake will also recursively scan for modules (`*.cppm`), headers (`*.hpp`, `.h`), template-implementations (`.tpp`) and source-files (`.cpp`, `.c`) within the `./src` folder, which you have to create in the root of the workspace. All these are automatically linked so that both the main entry-point (`./main.cpp`) and all the tests (`./tests/*.cpp`) can include/import them. I've mostly tested this with module-files, so headers- and source-files are a bit unstable.
+
+All of these can be in nested folder structures inside the `./src` folder. Have fun!
+
 ## Thanks to
 
 - [@a858438680](https://github.com/a858438680) for figuring out a reliable workaround to importing the standard library as a module on unix systems. Source: https://github.com/llvm/llvm-project/issues/80231#issuecomment-1922037108. His solution works great.
