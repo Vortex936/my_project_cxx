@@ -202,6 +202,8 @@ All of these can be in nested folder structures inside the `./src` folder. Have 
 
 On MacOS, if you have an x86_64 processor, some parts of the standard library, like the new printing functions `std::print` and `std::println` are unusable, and will result in a runtime error. This is not my fault, and is caused by a bug in Apple's C++ standard library. There's nothing i can do about this, sadly.
 
+If Clangd is reporting false positives, see the section for Clangd setup for VSCode and put the appropriate settings in your `settings.json`.
+
 ## Thanks to
 
 - [@a858438680](https://github.com/a858438680) for figuring out a reliable workaround to importing the standard library as a module on unix systems. Source: https://github.com/llvm/llvm-project/issues/80231#issuecomment-1922037108. His solution works great.
