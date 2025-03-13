@@ -137,6 +137,17 @@ For Clangd to function better, it is recommended to add the following lines to y
     ]
 ```
 
+#### MacOS
+
+```json
+    "clangd.path": "/opt/local/libexec/llvm-19/bin/clangd",
+    "clangd.arguments": [
+        "--query-driver=/opt/local/libexec/llvm-19/bin/clang,/opt/local/libexec/llvm-19/bin/clang++",
+        "--index=arm64-apple-darwin",
+        "--background-index=0"
+    ]
+```
+
 The target triple might possibly vary from system to system.
 
 ##### Others
